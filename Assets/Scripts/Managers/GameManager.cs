@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (lives <= 3)
+        if (lives < 2)
         {
             lives++;
             return;

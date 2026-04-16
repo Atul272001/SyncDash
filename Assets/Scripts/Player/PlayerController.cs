@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     CharacterController characterController;
 
-    [SerializeField] float maxSpeed = 30f;
+    [SerializeField] float maxSpeed = 50f;
     [SerializeField] float speed = 5f;
     [SerializeField] float jumpForce = 8f;
     [SerializeField] float gravity = -20f;

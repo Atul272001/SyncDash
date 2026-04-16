@@ -21,6 +21,7 @@ public class ObjectSpawnner : MonoBehaviour
 
     void Spawn()
     {
+        lastSpawnZ += spawnSpacing;
         Vector3 floorSpawnPos = new Vector3(0, 0, lastSpawnZ);
         GameObject floor = ObjectPooler.Instance.GetFloor();
         floor.transform.position = floorSpawnPos;
@@ -54,7 +55,7 @@ public class ObjectSpawnner : MonoBehaviour
         {
             orbSpawnCountDown++;
         }
-        lastSpawnZ += spawnSpacing;
+        
     }
 
 }

@@ -10,10 +10,10 @@ public class Orb : MonoBehaviour, IInteractable
     {
         if(player == null)
             return;
-        //if(transform.position.z < player.position.z - disableDistance)
-        //{
-        //    ObjectPooler.Instance.ResetPostion(gameObject);
-        //}
+        if (transform.position.z < player.position.z - disableDistance)
+        {
+            ObjectPooler.Instance.ResetPostion(gameObject);
+        }
     }
 
     public void GetPlayerTransform(Transform playerTransform)
@@ -30,7 +30,9 @@ public class Orb : MonoBehaviour, IInteractable
 
     void PlayVFX()
     {
-        Instantiate(collectOrbFx, transform.position, Quaternion.identity);
+        GameObject fx = Instantiate(collectOrbFx, transform.position, Quaternion.identity);
+        ParticleSystem ps = fx.GetComponent<ParticleSystem>();
+        ps.Play();
         Debug.Log(collectOrbFx.transform.position);
     }
 }

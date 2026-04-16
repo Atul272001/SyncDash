@@ -6,6 +6,9 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     bool gameOver;
     float currentScore;
+    float scoreIncreseTimer = 2;
+
+    float speed = 5;
 
     [SerializeField] Text scoreText;
 
@@ -17,9 +20,22 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
+        if (scoreIncreseTimer > 0)
+        {
+            scoreIncreseTimer -= Time.deltaTime;
+        }
+        else
+        {
+            speed += 2f;
+            speed = Mathf.Clamp(speed, 5f, 70);
+
+            scoreIncreseTimer = 5f;
+        }
+
+
         if (!gameOver)
         {
-            currentScore += Time.deltaTime * 5;
+            currentScore += Time.deltaTime * speed;
             UpdateScore();
         }
     }
