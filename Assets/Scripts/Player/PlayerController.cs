@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) && characterController.isGrounded)
         {
             verticalVelocity = jumpForce;
             jumpedThisFrame = true;
